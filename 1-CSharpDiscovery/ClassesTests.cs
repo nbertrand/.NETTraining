@@ -1,31 +1,32 @@
 ﻿using NFluent;
 using NUnit.Framework;
-
 namespace CSharpDiscovery
 {
     [TestFixture]
     public class ClassesTests
     {
-        //[Test]
-        //public void CreateACalculatorClassWithADefaultConstructorAndInstanciate()
-        //{
-        //    Check.That(calculator).IsNotNull();
-        //}
+        private Calculator calculator = new Calculator();
+        [Test]
+        public void CreateACalculatorClassWithADefaultConstructorAndInstanciate()
+        {
+            Check.That(calculator).IsNotNull();
+        }
 
-        //[Test]
-        //public void AddAnotherConstructorWithAFriendlyNameAndInstanciate()
-        //{
-        //    // use a public member for Name for now, i.e public string Name;
-        //    Check.That(calculator.Name).Equals("Calculator");
-        //}
+        [Test]
+        public void AddAnotherConstructorWithAFriendlyNameAndInstanciate()
+        {
+            calculator = new Calculator("Calculator");
+            // use a public member for Name for now, i.e public string Name;
+            Check.That(calculator.Name).Equals("Calculator");
+        }
 
-        //[Test]
-        //public void AddAMethodThatMakeASumOfAnArrayOfDouble()
-        //{
-        //    var valuesToSum = new[] { 1.3, 1.7 };
-        //    // add a method Sum to calculator class
-        //    Check.That(sumOfTheArray).Equals(3.0);
-        //}
+        [Test]
+        public void AddAMethodThatMakeASumOfAnArrayOfDouble()
+        {
+            var valuesToSum = new[] { 1.3, 1.7 };
+            // add a method Sum to calculator class
+            Check.That(calculator.SumOfTheArray(valuesToSum)).Equals(3.0);
+        }
 
         //[Test]
         //public void AddAMethodOverloadThatMakeASumOfTwoDoubleFromStringRepresentation()
